@@ -103,7 +103,7 @@
         }
         
         body {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.6;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
@@ -137,14 +137,35 @@
         }
         
         /* Responsive padding */
-        @media (max-width: 640px) {
-            .section-padding {
-                padding-left: 16px;
-                padding-right: 16px;
-                padding-top: 32px;
-                padding-bottom: 32px;
-            }
-        }
+       @media (max-width: 640px) {
+    .section-padding {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+    
+    /* Aumentar tamaños de fuente en mobile */
+    body {
+        font-size: 18px;
+    }
+    
+    h1 {
+        font-size: 28px !important;
+    }
+    
+    h2 {
+        font-size: 22px !important;
+    }
+    
+    h3 {
+        font-size: 18px !important;
+    }
+    
+    p {
+        font-size: 16px !important;
+    }
+}
         
         @media (min-width: 641px) {
             .section-padding {
