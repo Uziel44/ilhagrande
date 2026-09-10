@@ -1,0 +1,31 @@
+FOTOS DE LA WEB
+
+Poné acá las imágenes con EXACTAMENTE estos nombres:
+
+  hero.jpg              Fondo del banner principal. Horizontal, 1920x1080 o mayor.
+                        Idealmente la foto de bioluminiscencia o de canoa nocturna.
+
+  guide-franco.jpg      Foto de Franco. Vertical, proporción 4:5.
+
+  unit-karamuru.jpg     Foto de canoa. Vertical.
+  unit-trekking.jpg     Foto de montaña o sendero. Vertical.
+
+  tour-sunrise.jpg      Amanecer desde la canoa. Horizontal 3:2.
+  tour-sunset.jpg       Atardecer desde la canoa. Horizontal 3:2.
+
+  trek-summit.jpg       Vista desde el Pico do Papagaio. Vertical 5:6.
+
+  gallery-1.jpg         Seis fotos cuadradas para la galería.
+  gallery-2.jpg
+  gallery-3.jpg
+  gallery-4.jpg
+  gallery-5.jpg
+  gallery-6.jpg
+
+  share-preview.jpg     1200x630. Es la que se ve al compartir el link.
+  favicon.png           512x512. El iconito de la pestaña del navegador.
+
+REGLAS
+- Siempre minúsculas, sin espacios, sin acentos, sin ñ.
+- Guardá en .jpg con calidad 80. Cada foto debería pesar menos de 300 KB.
+- Si una foto pesa más de 500 KB, la web va a cargar lenta en celular.

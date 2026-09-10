@@ -1,0 +1,947 @@
+/* ==========================================================================
+   GUIA ILHA GRANDE AVENTURA
+   Hoja de estilos única.
+
+   ORGANIZACIÓN DEL ARCHIVO
+   1.  Variables (las dos paletas)
+   2.  Reset y base
+   3.  Utilidades y componentes compartidos
+   4.  Header y navegación
+   5.  Hero
+   6.  About
+   7.  Split (las dos unidades)
+   8.  Bioluminiscencia  ← zona celeste sobre negro
+   9.  Tours de canoa    ← zona celeste
+   10. Trekking          ← zona verde
+   11. Info / acordeón
+   12. Galería
+   13. Confianza
+   14. CTA final
+   15. Footer y botón flotante
+   16. Responsive
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES
+   COMENTARIO REEMPLAZO: acá cambiás TODOS los colores de la web de una vez.
+   ========================================================================== */
+:root {
+
+  /* --- ZONA A · Verde selva. Marca general y trekking --- */
+  --forest:  #0B3B2E;   /* verde profundo, fondos plenos */
+  --jungle:  #1B7A4B;   /* verde tropical, botones y enlaces */
+  --frond:   #7FC241;   /* verde fresco, acentos */
+  --mist:    #F2F7F1;   /* fondo claro con tinte verde */
+  --paper:   #FFFFFF;
+  --ink:     #10231C;   /* texto principal */
+  --ink-soft:#4A5D55;   /* texto secundario */
+
+  /* --- ZONA B · Karamuru. Celeste, blanco y negro --- */
+  --abyss:   #05070B;   /* negro de la noche */
+  --glow:    #4FD2F5;   /* celeste brillante */
+  --shallow: #BEE9F7;   /* celeste claro para textos */
+  --deep-sea:#0A1A24;   /* azul casi negro, fondos secundarios */
+
+  /* --- Medidas --- */
+  --wrap: 1180px;
+  --pad: 24px;
+  --radius: 14px;
+  --radius-lg: 26px;
+
+  /* --- Tipografía --- */
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "Karla", system-ui, -apple-system, sans-serif;
+}
+
+
+/* ==========================================================================
+   2. RESET Y BASE
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* compensa la altura del header fijo al saltar a una sección */
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* height:auto es imprescindible: las imágenes llevan atributos width y height
+   en el HTML (sirven para que la página no salte al cargar), y sin esta línea
+   esa altura fija le gana al aspect-ratio y las fotos salen deformadas. */
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+p { margin: 0 0 1em; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible {
+  outline: 3px solid var(--frond);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--forest);
+  color: #fff;
+  padding: 12px 18px;
+  z-index: 200;
+}
+.skip-link:focus { left: 0; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   3. UTILIDADES Y COMPONENTES COMPARTIDOS
+   ========================================================================== */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* Sin esto, una foto grande agranda su columna y descuadra la grilla.
+   Es el error de maquetación más común con CSS Grid e imágenes. */
+.about__grid > *,
+.trek__grid > *,
+.info__grid > *,
+.tours__grid > *,
+.glow__cols > *,
+.footer__grid > * { min-width: 0; }
+
+.h2 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  color: var(--forest);
+  margin-bottom: 0.6em;
+}
+.h2--light { color: #fff; }
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.section-head { max-width: 620px; margin-bottom: 48px; }
+.section-head__text { color: var(--ink-soft); margin: 0; }
+
+/* --- Botones --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 15px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .18s ease, background-color .18s ease, color .18s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--light   { background: var(--paper); color: var(--forest); }
+.btn--light:hover { background: var(--frond); color: var(--forest); }
+
+.btn--frond   { background: var(--frond); color: var(--forest); }
+.btn--frond:hover { background: #fff; }
+
+.btn--ghost   { background: rgba(255,255,255,.10); color: #fff; border-color: rgba(255,255,255,.5); }
+.btn--ghost:hover { background: rgba(255,255,255,.22); }
+
+.btn--glow    { background: var(--glow); color: var(--abyss); }
+.btn--glow:hover { background: #fff; }
+
+.btn--big { padding: 19px 42px; font-size: 1.08rem; }
+
+/* --- Enlace de acción en texto --- */
+.link-cta {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--jungle);
+  text-decoration: none;
+  border-bottom: 2px solid var(--frond);
+  padding-bottom: 2px;
+}
+.link-cta:hover { color: var(--forest); border-color: var(--forest); }
+
+/* --- Lista con tilde --- */
+.ticks li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 11px;
+  color: var(--ink-soft);
+}
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 9px; height: 15px;
+  border: solid var(--jungle);
+  border-width: 0 3px 3px 0;
+  transform: rotate(42deg);
+}
+.ticks--light li { color: rgba(255,255,255,.82); }
+.ticks--light li::before { border-color: var(--frond); }
+
+
+/* ==========================================================================
+   4. HEADER Y NAVEGACIÓN
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--forest);
+  transition: box-shadow .25s ease;
+}
+.site-header.is-stuck { box-shadow: 0 6px 26px rgba(0,0,0,.28); }
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand__mark {
+  width: 26px; height: 26px;
+  flex: none;
+  border-radius: 50% 6px 50% 50%;
+  background: linear-gradient(135deg, var(--frond), var(--glow));
+}
+.brand__text { display: flex; flex-direction: column; line-height: 1.06; }
+.brand__line1 { font-family: var(--display); font-weight: 800; font-size: 1.02rem; }
+.brand__line2 { font-size: .72rem; letter-spacing: .16em; color: var(--frond); }
+
+.nav { display: flex; align-items: center; gap: 30px; }
+.nav__link {
+  color: rgba(255,255,255,.86);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .97rem;
+}
+.nav__link:hover { color: var(--frond); }
+.nav__cta { padding: 11px 22px; font-size: .93rem; }
+
+.burger {
+  display: none;
+  width: 46px; height: 46px;
+  background: none;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+}
+.burger span {
+  display: block;
+  width: 20px; height: 2px;
+  margin: 4px auto;
+  background: #fff;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+
+/* ==========================================================================
+   5. HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 140px 0 92px;
+  overflow: hidden;
+  background: var(--abyss);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  /* COMENTARIO REEMPLAZO: cambiá la ruta de la foto de fondo del hero */
+  background-image:
+    linear-gradient(to top, rgba(5,7,11,.94) 8%, rgba(10,26,36,.55) 55%, rgba(10,26,36,.2) 100%),
+    url("07.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__content { position: relative; z-index: 2; }
+
+.hero__title {
+  font-size: clamp(2.6rem, 8.4vw, 6rem);
+  color: #fff;
+  max-width: 15ch;
+  margin-bottom: 26px;
+}
+.hero__title .line { display: block; }
+.hero__title .line:last-child { color: var(--glow); }
+
+.hero__text {
+  color: rgba(255,255,255,.86);
+  font-size: 1.16rem;
+  max-width: 46ch;
+  margin-bottom: 34px;
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.hero__scroll {
+  position: absolute;
+  left: 50%; bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.hero__scroll-line {
+  display: block;
+  width: 1px; height: 46px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,.75));
+}
+
+/* Entrada del hero: un solo momento orquestado al cargar la página */
+.hero__title .line,
+.hero__text,
+.hero__actions {
+  animation: rise .9s cubic-bezier(.22,.7,.3,1) both;
+}
+.hero__title .line:nth-child(1) { animation-delay: .05s; }
+.hero__title .line:nth-child(2) { animation-delay: .14s; }
+.hero__title .line:nth-child(3) { animation-delay: .23s; }
+.hero__text    { animation-delay: .34s; }
+.hero__actions { animation-delay: .44s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==========================================================================
+   6. ABOUT
+   ========================================================================== */
+.about { padding: 104px 0; background: var(--paper); }
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about__photo { margin: 0; }
+.about__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--mist);
+}
+
+.about__body p { color: var(--ink-soft); }
+.about__body .lead { color: var(--ink); }
+.about__body .ticks { margin-top: 26px; }
+
+
+/* ==========================================================================
+   7. SPLIT · LAS DOS UNIDADES
+   Sección bisagra: mitad celeste, mitad verde.
+   ========================================================================== */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.split__half {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.split__img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .7s cubic-bezier(.22,.7,.3,1);
+}
+.split__half:hover .split__img { transform: scale(1.05); }
+
+.split__half::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.split__half--water::after {
+  background: linear-gradient(to top, rgba(5,7,11,.93) 8%, rgba(10,26,36,.55) 55%, rgba(10,26,36,.2) 100%);
+}
+.split__half--forest::after {
+  background: linear-gradient(to top, rgba(11,59,46,.94) 8%, rgba(11,59,46,.55) 55%, rgba(11,59,46,.2) 100%);
+}
+
+.split__body {
+  position: relative;
+  z-index: 2;
+  padding: 46px 42px 52px;
+  color: #fff;
+}
+
+.split__kicker {
+  font-size: .93rem;
+  margin: 0 0 6px;
+  color: rgba(255,255,255,.7);
+}
+.split__half--water .split__kicker { color: var(--glow); }
+.split__half--forest .split__kicker { color: var(--frond); }
+
+.split__title { font-size: clamp(2.2rem, 4.4vw, 3.4rem); margin-bottom: 12px; }
+
+.split__text {
+  color: rgba(255,255,255,.84);
+  max-width: 34ch;
+  margin-bottom: 18px;
+}
+
+.split__cue {
+  display: inline-block;
+  font-weight: 700;
+  font-size: .93rem;
+  padding-bottom: 3px;
+  border-bottom: 2px solid currentColor;
+}
+.split__half--water .split__cue { color: var(--glow); }
+.split__half--forest .split__cue { color: var(--frond); }
+
+
+/* ==========================================================================
+   8. BIOLUMINISCENCIA · ZONA CELESTE SOBRE NEGRO
+   Es la sección más importante de la web. Único efecto luminoso permitido.
+   ========================================================================== */
+.glow {
+  position: relative;
+  background: var(--abyss);
+  color: #fff;
+  padding: 128px 0;
+  overflow: hidden;
+}
+
+.glow__aura {
+  position: absolute;
+  top: -20%; left: 50%;
+  width: 900px; height: 900px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(circle,
+              rgba(79,210,245,.20) 0%,
+              rgba(79,210,245,.07) 38%,
+              transparent 68%);
+  animation: breathe 9s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: .7; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;  transform: translateX(-50%) scale(1.1); }
+}
+
+.glow__inner { position: relative; z-index: 2; }
+
+.glow__kicker {
+  color: var(--glow);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.glow__title {
+  font-size: clamp(2.6rem, 7.4vw, 5.4rem);
+  max-width: 13ch;
+  margin-bottom: 42px;
+  text-shadow: 0 0 60px rgba(79,210,245,.35);
+}
+
+.glow__cols {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  margin-bottom: 58px;
+}
+.glow__lead {
+  font-size: 1.22rem;
+  color: #fff;
+  margin: 0;
+  max-width: 40ch;
+}
+.glow__note {
+  color: var(--shallow);
+  margin: 0;
+  max-width: 42ch;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(79,210,245,.28);
+  border: 1px solid rgba(79,210,245,.28);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 0 0 46px;
+}
+.facts__item { background: var(--abyss); padding: 26px 22px; }
+.facts dt {
+  font-size: .84rem;
+  color: var(--shallow);
+  margin-bottom: 6px;
+}
+.facts dd {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--glow);
+}
+
+
+/* ==========================================================================
+   9. TOURS DE CANOA · ZONA CELESTE SOBRE BLANCO
+   ========================================================================== */
+.tours { padding: 104px 0; background: var(--paper); }
+.tours .h2 { color: var(--deep-sea); }
+
+.tours__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.tour {
+  border: 1px solid var(--shallow);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.tour__img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: #E8F6FB;
+}
+
+.tour__body { padding: 32px; display: flex; flex-direction: column; flex: 1; }
+
+.tour__title {
+  font-size: 1.75rem;
+  color: var(--deep-sea);
+  margin-bottom: 12px;
+}
+.tour__text { color: var(--ink-soft); }
+
+.tour__meta {
+  margin: 6px 0 24px;
+  border-top: 1px solid var(--shallow);
+}
+.tour__meta li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--shallow);
+  font-size: .96rem;
+  text-align: right;
+}
+.tour__meta span {
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-align: left;
+}
+
+.tour .link-cta {
+  margin-top: auto;
+  align-self: flex-start;
+  color: #0A7FA8;
+  border-color: var(--glow);
+}
+.tour .link-cta:hover { color: var(--deep-sea); border-color: var(--deep-sea); }
+
+
+/* ==========================================================================
+   10. TREKKING · ZONA VERDE
+   ========================================================================== */
+.trek { background: var(--forest); color: #fff; padding: 112px 0; }
+
+.trek__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.trek__body .lead { color: #fff; }
+.trek__body p { color: rgba(255,255,255,.78); }
+.trek__body .ticks { margin: 26px 0 34px; }
+
+.trek__photo { margin: 0; }
+.trek__photo img {
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: #0d4635;
+}
+
+
+/* ==========================================================================
+   11. INFO / ACORDEÓN
+   ========================================================================== */
+.info { padding: 104px 0; background: var(--mist); }
+
+.info__grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+.info__intro p { color: var(--ink-soft); }
+
+.accordion {
+  border-top: 1px solid rgba(16,35,28,.14);
+}
+
+.acc { border-bottom: 1px solid rgba(16,35,28,.14); }
+
+.acc__head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.16rem;
+  color: var(--forest);
+  text-align: left;
+}
+.acc__head:hover { color: var(--jungle); }
+
+.acc__icon {
+  position: relative;
+  width: 18px; height: 18px;
+  flex: none;
+}
+.acc__icon::before,
+.acc__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--jungle);
+  transition: transform .3s ease, opacity .3s ease;
+}
+.acc__icon::before { top: 8px; left: 0; width: 18px; height: 2px; }
+.acc__icon::after  { top: 0; left: 8px; width: 2px; height: 18px; }
+
+.acc__head[aria-expanded="true"] .acc__icon::after { transform: rotate(90deg); opacity: 0; }
+
+/* El panel se anima con max-height calculado desde JS */
+.acc__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.acc__inner { padding: 0 0 24px; color: var(--ink-soft); }
+.acc__inner p:last-child { margin-bottom: 0; }
+.acc__inner ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+.acc__inner ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 11px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--frond);
+}
+
+
+/* ==========================================================================
+   12. GALERÍA
+   ========================================================================== */
+.gallery { padding: 104px 0; background: var(--paper); }
+.gallery__title { margin-bottom: 40px; }
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  /* start evita que la grilla estire las fotos y les rompa el formato cuadrado */
+  align-items: start;
+}
+.gallery__grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--mist);
+  transition: transform .5s cubic-bezier(.22,.7,.3,1);
+}
+.gallery__grid img:hover { transform: scale(1.03); }
+
+
+/* ==========================================================================
+   13. CONFIANZA
+   ========================================================================== */
+.trust { padding: 96px 0; background: var(--mist); text-align: center; }
+.trust__title { margin-bottom: .3em; }
+.trust__text { color: var(--ink-soft); margin-bottom: 36px; }
+
+.trust__links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trust__card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 230px;
+  padding: 22px 30px;
+  background: var(--paper);
+  border: 1px solid rgba(16,35,28,.12);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.trust__card:hover { transform: translateY(-3px); border-color: var(--jungle); }
+.trust__name { font-family: var(--display); font-weight: 700; color: var(--forest); }
+.trust__handle { font-size: .92rem; color: var(--ink-soft); }
+
+/* Estilos de los testimonios, listos para cuando descomentes el bloque */
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+  text-align: left;
+}
+.quote {
+  margin: 0;
+  padding: 30px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--frond);
+}
+.quote p { color: var(--ink); }
+.quote cite { font-style: normal; font-weight: 700; color: var(--jungle); font-size: .93rem; }
+
+
+/* ==========================================================================
+   14. CTA FINAL
+   ========================================================================== */
+.cta { background: var(--jungle); color: #fff; padding: 96px 0; }
+.cta__inner { text-align: center; }
+.cta__title {
+  font-size: clamp(2.1rem, 5.4vw, 3.4rem);
+  margin-bottom: 16px;
+}
+.cta__text {
+  color: rgba(255,255,255,.9);
+  max-width: 44ch;
+  margin: 0 auto 32px;
+}
+
+
+/* ==========================================================================
+   15. FOOTER Y BOTÓN FLOTANTE
+   ========================================================================== */
+.site-footer { background: var(--forest); color: #fff; padding: 76px 0 30px; }
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer__name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin: 14px 0 8px;
+}
+.footer__blurb { color: rgba(255,255,255,.62); max-width: 30ch; }
+
+.footer__col { display: flex; flex-direction: column; gap: 11px; }
+.footer__head {
+  font-size: .8rem;
+  letter-spacing: .14em;
+  color: var(--frond);
+  margin-bottom: 5px;
+  font-family: var(--body);
+  font-weight: 700;
+}
+.footer__col a {
+  color: rgba(255,255,255,.78);
+  text-decoration: none;
+  font-size: .97rem;
+}
+.footer__col a:hover { color: #fff; }
+.footer__plain { color: rgba(255,255,255,.55); font-size: .92rem; margin: 6px 0 0; }
+
+.footer__base {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.45);
+  font-size: .87rem;
+}
+.footer__base p { margin: 0; }
+
+.wa {
+  position: fixed;
+  right: 22px; bottom: 22px;
+  z-index: 90;
+  width: 58px; height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  transition: transform .2s ease;
+}
+.wa:hover { transform: scale(1.08); }
+
+
+/* ==========================================================================
+   16. RESPONSIVE
+   Mobile-first en la práctica: acá se adapta todo para pantallas chicas.
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  .burger { display: block; }
+
+  .nav {
+    position: fixed;
+    top: 76px; left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--forest);
+    padding: 0 var(--pad);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, padding .3s ease;
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+  .nav.is-open { max-height: 360px; padding: 8px var(--pad) 24px; }
+
+  .nav__link {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .nav__cta { margin-top: 18px; text-align: center; }
+
+  .about__grid,
+  .trek__grid,
+  .info__grid,
+  .glow__cols,
+  .tours__grid,
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .split { grid-template-columns: 1fr; }
+  .split__half { min-height: 460px; }
+
+  /* En celular la foto del trekking va arriba del texto */
+  .trek__photo { order: -1; }
+
+  .facts { grid-template-columns: 1fr 1fr; }
+
+  .gallery__grid { grid-template-columns: 1fr 1fr; }
+
+  .quotes { grid-template-columns: 1fr; }
+
+  .about, .tours, .info, .gallery { padding: 72px 0; }
+  .glow, .trek { padding: 84px 0; }
+}
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .hero { padding: 120px 0 76px; }
+  .hero__actions .btn { width: 100%; }
+  .split__body { padding: 32px 26px 38px; }
+  .tour__body { padding: 26px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts__item { padding: 20px; }
+  .trust__card { min-width: 100%; }
+}
+
+
+/* --------------------------------------------------------------------------
+   Respeta a quien pidió menos animación en la configuración de su sistema.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
