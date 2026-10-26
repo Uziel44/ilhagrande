@@ -1,6 +1,6 @@
 # Guia Ilha Grande Aventura
 
-Landing page estática. Tres archivos, sin frameworks ni dependencias.
+Landing page estática. Cuatro archivos, sin frameworks ni dependencias.
 
 ---
 
@@ -11,6 +11,7 @@ Landing page estática. Tres archivos, sin frameworks ni dependencias.
 | `index.html` | La estructura y todo el texto de la página |
 | `index.css` | Todos los estilos, incluidas las dos paletas |
 | `index.js` | Menú móvil, acordeón y el año del footer |
+| `i18n.js` | Traducciones EN / PT y selector de idioma |
 | `img/` | Las fotos. Leé `img/LEEME.txt` para los nombres exactos |
 | `robots.txt` | Le dice a Google que puede indexar el sitio |
 | `sitemap.xml` | Lista de páginas para Google |
@@ -126,3 +127,19 @@ izquierda del panel el icono de teléfono.
 Cada botón de WhatsApp abre el chat con un mensaje distinto según la sección
 desde la que se hizo clic. Cuando te escriba alguien vas a saber si vino por
 la bioluminiscencia, por el amanecer o por el trekking, sin preguntarlo.
+
+---
+
+## Idiomas (EN / PT)
+
+Una sola página: `index.html` tiene el texto en **inglés** (respaldo sin JS y
+para Google) y `i18n.js` tiene el **portugués**. Al abrir, la web usa el idioma
+guardado, si no el del navegador, si no inglés. Los botones EN / PT del header
+cambian el idioma sin recargar.
+
+- Texto: `data-i18n="clave"` en el elemento. La clave se traduce en `DICT.pt`.
+- Atributos (`alt`, `aria-label`, `content`): `data-i18n-attr="alt:clave"`.
+- Mensaje de WhatsApp: `data-wa-key="clave"` en el enlace `wa.me`.
+- Para cambiar un texto en portugués, editá su clave en `i18n.js`.
+- Para agregar un idioma: sumalo a `LANGS`, creá su bloque en `DICT` y agregá un
+  botón `data-lang` en el header.

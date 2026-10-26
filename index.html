@@ -9,7 +9,7 @@
      Cambiá el título y la descripción si querés otro enfoque.
      La descripción es lo que Google muestra debajo del título.
      ========================================================================== -->
-<title>Guide Ilha Grande Aventua | Paseios em Canoa Havaiana</title>
+<title>Guide Ilha Grande Adventure | Bioluminescent canoe and mountain tours</title>
 <meta name="description" content="Small-group Hawaiian canoe and trekking tours in Ilha Grande, Brazil. Bioluminescent night paddles, sunrise trips and guided climbs to Pico do Papagaio.">
 <meta name="theme-color" content="#0B3B2E">
 
@@ -20,11 +20,10 @@
      La imagen debe ser de 1200x630 píxeles.
      ========================================================================== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Guide Ilha Grande Aventura">
-<meta property="og:description" content="Bioluminescent night paddles, sunrise canoe trips and guided treks in Ilha Grande, Brazil.">
+<meta property="og:title" content="Guide Ilha Grande Adventure" data-i18n-attr="content:meta.ogtitle">
+<meta property="og:description" content="Bioluminescent night paddles, sunrise canoe trips and guided treks in Ilha Grande, Brazil." data-i18n-attr="content:meta.ogdesc">
 <meta property="og:url" content="https://uziel44.github.io/ilhagrande/">
-<meta property="og:image" content="https://uziel44.github.io/ilhagrande/
-07.jpeg">
+<meta property="og:image" content="https://uziel44.github.io/ilhagrande/img/share-preview.jpg">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -40,7 +39,7 @@
 
 <body>
 
-<a class="skip-link" href="#main">Ir para o conteúdo</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
 <!-- ==========================================================================
      SECCIÓN 01 · HEADER FIJO
@@ -58,15 +57,20 @@
     </a>
 
     <nav class="nav" id="navMenu" aria-label="Main">
-      <a class="nav__link" href="#about">Sobre nos</a>
+      <a class="nav__link" href="#about" data-i18n="nav.about">About</a>
       <a class="nav__link" href="#karamuru">Karamuru</a>
       <a class="nav__link" href="#trekking">Trekking</a>
       <a class="nav__link" href="#info">Info</a>
       <!-- COMENTARIO REEMPLAZO: número de WhatsApp. Formato: 55 + código de área + número, sin espacios ni signos. -->
-      <a class="btn btn--light nav__cta" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener">Book a tour</a>
+      <a data-wa-key="wa.book" class="btn btn--light nav__cta" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener" data-i18n="nav.book">Book a tour</a>
     </nav>
 
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:aria.lang">
+      <button class="lang__btn" type="button" lang="en" data-lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false">PT</button>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu" data-i18n-attr="aria-label:aria.menu">
       <span></span><span></span><span></span>
     </button>
 
@@ -80,24 +84,25 @@
      ========================================================================== -->
 <section class="hero" id="home">
   <!-- COMENTARIO REEMPLAZO: foto de fondo del hero. Editá la ruta en index.css, en la regla .hero__media -->
-  <div class="hero__media" role="img" aria-label="Bioluminescent water around a Hawaiian canoe at night in Ilha Grande"></div>
+  <div class="hero__media" role="img" aria-label="Bioluminescent water around a Hawaiian canoe at night in Ilha Grande" data-i18n-attr="aria-label:aria.hero"></div>
 
   <div class="wrap hero__content">
     <h1 class="hero__title">
-      <span class="line">Guia Ilha Grande</span>
-      <span class="line">Aventura de noite</span>
-      <span class="line">Paraíso natural</span>
+      <span class="line" data-i18n="hero.l1">Nights that glow.</span>
+      <span class="line" data-i18n="hero.l2">Mornings worth</span>
+      <span class="line" data-i18n="hero.l3">waking up for.</span>
     </h1>
-    <p class="hero__text">
-      Organizamos uma experiência única.
+    <p class="hero__text" data-i18n="hero.text">
+      Small-group Hawaiian canoe and mountain tours in Ilha Grande, Brazil,
+      guided by Franco Raffaeli.
     </p>
     <div class="hero__actions">
-      <a class="btn btn--glow" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener">Reserva no WhatsApp</a>
-      <a class="btn btn--ghost" href="#experiences">Ver paseios</a>
+      <a data-wa-key="wa.book" class="btn btn--glow" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener" data-i18n="hero.cta1">Book on WhatsApp</a>
+      <a class="btn btn--ghost" href="#experiences" data-i18n="hero.cta2">See the tours</a>
     </div>
   </div>
 
-  <a class="hero__scroll" href="#about" aria-label="Scroll to content">
+  <a class="hero__scroll" href="#about" aria-label="Scroll to content" data-i18n-attr="aria-label:aria.scroll">
     <span class="hero__scroll-line" aria-hidden="true"></span>
   </a>
 </section>
@@ -111,26 +116,27 @@
 
     <figure class="about__photo">
       <!-- COMENTARIO REEMPLAZO: foto de Franco. Formato vertical funciona mejor. -->
-      <img src="03.jpeg" alt="Franco Raffaeli, local guide in Ilha Grande" width="720" height="900" loading="lazy">
+      <img src="03.jpeg" alt="Franco Raffaeli, local guide in Ilha Grande" width="720" height="900" loading="lazy" data-i18n-attr="alt:alt.franco">
     </figure>
 
     <div class="about__body">
-      <h2 class="h2">Seu guia na ilha</h2>
-      <p class="lead">
-        Franco rema e faz caminhadas por Ilha Grande há anos. 
-        Cada passeio é realizado com um guia e no máximo seis pessoas, 
-        para que ninguém fique para trás e a ilha permaneça tranquila.
+      <h2 class="h2" data-i18n="about.h">Your guide on the island</h2>
+      <p class="lead" data-i18n="about.lead">
+        Franco has been paddling and hiking Ilha Grande for years. Every tour runs
+        with one guide and no more than six people, so nobody gets left behind and
+        the island stays quiet.
       </p>
-      <p>
-        Não é necessária nenhuma experiência para nenhum dos passeios. 
-        Você receberá uma aula de remada antes de sair, todos os equipamentos de segurança e as fotos e vídeos do passeio enviados para você depois.
+      <p data-i18n="about.p">
+        No experience is needed for any of the tours. You will get a paddling lesson
+        before you go out, all the safety gear, and photos and videos of the trip
+        sent to you afterwards.
       </p>
 
       <ul class="ticks">
-        <li>Nenhuma experiência necessária</li>
-        <li>Seis pessoas por grupo, um guia</li>
-        <li>Equipamentos de segurança incluídos</li>
-        <li>Fotos e vídeos da sua viagem</li>
+        <li data-i18n="about.t1">No experience needed</li>
+        <li data-i18n="about.t2">Six people per group, one guide</li>
+        <li data-i18n="about.t3">Safety gear included</li>
+        <li data-i18n="about.t4">Photos and videos of your trip</li>
       </ul>
     </div>
 
@@ -142,27 +148,27 @@
      SECCIÓN 04 · LAS DOS UNIDADES (bisagra verde / celeste)
      ========================================================================== -->
 <section class="split" id="experiences">
-  <h2 class="visually-hidden">Nossos dois tipos de passeios</h2>
+  <h2 class="visually-hidden" data-i18n="split.h">Our two kinds of tours</h2>
 
   <a class="split__half split__half--water" href="#karamuru">
     <!-- COMENTARIO REEMPLAZO: foto de canoa -->
-    <img class="split__img" src="01.jpeg" alt="Hawaiian canoe on the sea at sunrise" width="1200" height="1400" loading="lazy">
+    <img class="split__img" src="01.jpeg" alt="Hawaiian canoe on the sea at sunrise" width="1200" height="1400" loading="lazy" data-i18n-attr="alt:alt.split1">
     <div class="split__body">
-      <p class="split__kicker">Na água</p>
+      <p class="split__kicker" data-i18n="split.k1">On the water</p>
       <h3 class="split__title">Karamuru</h3>
-      <p class="split__text">Passeios de canoa hawaiiana: bioluminescência após o escurecer, remadas ao amanhecer e ao entardecer.</p>
-      <span class="split__cue">Três passeios</span>
+      <p class="split__text" data-i18n="split.t1">Hawaiian canoe tours: bioluminescence after dark, sunrise and sunset paddles.</p>
+      <span class="split__cue" data-i18n="split.c1">Three tours</span>
     </div>
   </a>
 
   <a class="split__half split__half--forest" href="#trekking">
     <!-- COMENTARIO REEMPLAZO: foto de montaña o sendero -->
-    <img class="split__img" src="10.jpeg" alt="Hikers on a forest trail in Ilha Grande" width="1200" height="1400" loading="lazy">
+    <img class="split__img" src="10.jpeg" alt="Hikers on a forest trail in Ilha Grande" width="1200" height="1400" loading="lazy" data-i18n-attr="alt:alt.split2">
     <div class="split__body">
-      <p class="split__kicker">Na montanha</p>
+      <p class="split__kicker" data-i18n="split.k2">On the mountain</p>
       <h3 class="split__title">Trekking</h3>
-      <p class="split__text">Escaladas guiadas através da Floresta Atlântica até o topo do Pico do Papagaio.</p>
-      <span class="split__cue">Amanhecer</span>
+      <p class="split__text" data-i18n="split.t2">Guided climbs through the Atlantic Forest to the top of Pico do Papagaio.</p>
+      <span class="split__cue" data-i18n="split.c2">One route</span>
     </div>
   </a>
 </section>
@@ -176,17 +182,17 @@
   <div class="glow__aura" aria-hidden="true"></div>
 
   <div class="wrap glow__inner">
-    <p class="glow__kicker">The one people come back for</p>
+    <p class="glow__kicker" data-i18n="glow.k">The one people come back for</p>
 
-    <h2 class="glow__title">Swim through the stars</h2>
+    <h2 class="glow__title" data-i18n="glow.h">Swim through the stars</h2>
 
     <div class="glow__cols">
-      <p class="glow__lead">
+      <p class="glow__lead" data-i18n="glow.lead">
         Tiny marine organisms light up when the water moves. We paddle out after
         dark, slip into the sea with a mask, and the water lights up around your
         hands with every stroke.
       </p>
-      <p class="glow__note">
+      <p class="glow__note" data-i18n="glow.note">
         Bioluminescence is a natural phenomenon, so it depends on the sea and the
         sky. Darker nights show more light, which is why departure times move with
         the phase of the moon.
@@ -195,25 +201,25 @@
 
     <dl class="facts">
       <div class="facts__item">
-        <dt>Duration</dt>
-        <dd>2 hours</dd>
+        <dt data-i18n="f.dur">Duration</dt>
+        <dd data-i18n="f.dur.v">2 hours</dd>
       </div>
       <div class="facts__item">
-        <dt>Departures</dt>
-        <dd>6:00, 8:00 &amp; 10:00 PM</dd>
+        <dt data-i18n="f.dep">Departures</dt>
+        <dd data-i18n="f.dep.v">6:00, 8:00 &amp; 10:00 PM</dd>
       </div>
       <div class="facts__item">
-        <dt>Group size</dt>
-        <dd>6 people max</dd>
+        <dt data-i18n="f.grp">Group size</dt>
+        <dd data-i18n="f.grp.v">6 people max</dd>
       </div>
       <!-- COMENTARIO REEMPLAZO: si no querés publicar el precio, cambiá "R$150" por "Ask us" -->
       <div class="facts__item">
-        <dt>Price</dt>
-        <dd>R$150 per person</dd>
+        <dt data-i18n="f.price">Price</dt>
+        <dd data-i18n="f.price.v">R$150 per person</dd>
       </div>
     </dl>
 
-    <a class="btn btn--glow" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20join%20the%20bioluminescence%20tour.%20Which%20nights%20are%20available%3F" target="_blank" rel="noopener">Check available nights</a>
+    <a data-wa-key="wa.glow" class="btn btn--glow" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20join%20the%20bioluminescence%20tour.%20Which%20nights%20are%20available%3F" target="_blank" rel="noopener" data-i18n="glow.cta">Check available nights</a>
   </div>
 </section>
 
@@ -224,8 +230,8 @@
 <section class="tours" id="karamuru">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="h2">The rest of Karamuru</h2>
-      <p class="section-head__text">
+      <h2 class="h2" data-i18n="tours.h">The rest of Karamuru</h2>
+      <p class="section-head__text" data-i18n="tours.t">
         Same canoe, same small group, different light. Both trips leave from
         Vila do Abraão.
       </p>
@@ -235,40 +241,40 @@
 
       <article class="tour">
         <!-- COMENTARIO REEMPLAZO: foto del amanecer -->
-        <img class="tour__img" src="13.jpeg" alt="Sunrise from a Hawaiian canoe in Ilha Grande" width="900" height="600" loading="lazy">
+        <img class="tour__img" src="13.jpeg" alt="Sunrise from a Hawaiian canoe in Ilha Grande" width="900" height="600" loading="lazy" data-i18n-attr="alt:alt.sunrise">
         <div class="tour__body">
-          <h3 class="tour__title">Sunrise paddle</h3>
-          <p class="tour__text">
+          <h3 class="tour__title" data-i18n="sr.h">Sunrise paddle</h3>
+          <p class="tour__text" data-i18n="sr.t">
             We leave before dawn and paddle to a spot to watch the sun come up.
             Snorkel over the coral on the way, then follow the coastline home
             past birds, beaches and forest.
           </p>
           <ul class="tour__meta">
-            <li><span>Departs</span> 5:00 AM, shifts with the season</li>
-            <li><span>Group</span> 6 people max</li>
-            <li><span>Price</span> R$150 per person</li>
+            <li data-i18n="sr.m1"><span>Departs</span> 5:00 AM, shifts with the season</li>
+            <li data-i18n="sr.m2"><span>Group</span> 6 people max</li>
+            <li data-i18n="sr.m3"><span>Price</span> R$150 per person</li>
           </ul>
-          <a class="link-cta" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20join%20the%20sunrise%20paddle" target="_blank" rel="noopener">Ask about the sunrise paddle</a>
+          <a data-wa-key="wa.sunrise" class="link-cta" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20join%20the%20sunrise%20paddle" target="_blank" rel="noopener" data-i18n="sr.cta">Ask about the sunrise paddle</a>
         </div>
       </article>
 
       <article class="tour">
         <!-- COMENTARIO REEMPLAZO: foto del atardecer -->
-        <img class="tour__img" src="03.jpeg" alt="Canoe paddling at sunset in Ilha Grande" width="900" height="600" loading="lazy">
+        <img class="tour__img" src="03.jpeg" alt="Canoe paddling at sunset in Ilha Grande" width="900" height="600" loading="lazy" data-i18n-attr="alt:alt.sunset">
         <div class="tour__body">
-          <h3 class="tour__title">Sunset paddle</h3>
-          <p class="tour__text">
+          <h3 class="tour__title" data-i18n="ss.h">Sunset paddle</h3>
+          <p class="tour__text" data-i18n="ss.t">
             An easy evening on the water along the coast of Ilha Grande, timed so
             you are out there when the light turns. A good first paddle if you
             have never been in a canoe.
           </p>
           <!-- COMENTARIO REEMPLAZO: faltan horario y precio del atardecer. Completá y borrá esta nota. -->
           <ul class="tour__meta">
-            <li><span>Departs</span> late afternoon, shifts with the season</li>
+            <li data-i18n="ss.m1"><span>Departs</span> late afternoon, shifts with the season</li>
             <li><span>Group</span> 6 people max</li>
-            <li><span>Price</span> ask us</li>
+            <li data-i18n="ss.m3"><span>Price</span> ask us</li>
           </ul>
-          <a class="link-cta" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20join%20the%20sunset%20paddle" target="_blank" rel="noopener">Ask about the sunset paddle</a>
+          <a data-wa-key="wa.sunset" class="link-cta" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20join%20the%20sunset%20paddle" target="_blank" rel="noopener" data-i18n="ss.cta">Ask about the sunset paddle</a>
         </div>
       </article>
 
@@ -285,30 +291,30 @@
 
     <div class="trek__body">
       <h2 class="h2 h2--light">Pico do Papagaio</h2>
-      <p class="lead">
+      <p class="lead" data-i18n="trek.lead">
         A guided climb through the Atlantic Forest to one of the best views in the
         state of Rio de Janeiro. We warm up at the meeting point, then walk up
         through the forest at a pace that works for the group.
       </p>
-      <p>
+      <p data-i18n="trek.p">
         On the way there is wildlife to spot, plants you will not see anywhere else,
         and lookouts over the whole bay. At the top we stop properly before heading
         back down.
       </p>
 
       <ul class="ticks ticks--light">
-        <li>Local guide the whole way</li>
-        <li>Photos and videos included</li>
-        <li>No climbing experience needed</li>
+        <li data-i18n="trek.t1">Local guide the whole way</li>
+        <li data-i18n="trek.t2">Photos and videos included</li>
+        <li data-i18n="trek.t3">No climbing experience needed</li>
       </ul>
 
       <!-- COMENTARIO REEMPLAZO: faltan duración, dificultad, horario y precio del trekking -->
-      <a class="btn btn--frond" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20do%20the%20Pico%20do%20Papagaio%20trek" target="_blank" rel="noopener">Ask about the trek</a>
+      <a data-wa-key="wa.trek" class="btn btn--frond" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20do%20the%20Pico%20do%20Papagaio%20trek" target="_blank" rel="noopener" data-i18n="trek.cta">Ask about the trek</a>
     </div>
 
     <figure class="trek__photo">
       <!-- COMENTARIO REEMPLAZO: foto de la cima o del sendero -->
-      <img src="06.jpeg" alt="Panoramic view from Pico do Papagaio over Ilha Grande" width="1000" height="1200" loading="lazy">
+      <img src="06.jpeg" alt="Panoramic view from Pico do Papagaio over Ilha Grande" width="1000" height="1200" loading="lazy" data-i18n-attr="alt:alt.trek">
     </figure>
 
   </div>
@@ -322,25 +328,25 @@
   <div class="wrap info__grid">
 
     <div class="info__intro">
-      <h2 class="h2">Before you come</h2>
-      <p>Everything people usually ask before booking.</p>
+      <h2 class="h2" data-i18n="info.h">Before you come</h2>
+      <p data-i18n="info.p">Everything people usually ask before booking.</p>
     </div>
 
     <div class="accordion" id="accordion">
 
       <div class="acc">
         <button class="acc__head" type="button" aria-expanded="true" data-acc="a1">
-          <span>What is included</span>
+          <span data-i18n="a1.h">What is included</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
         <div class="acc__panel" id="a1">
           <div class="acc__inner">
             <ul>
-              <li>Snorkel mask</li>
-              <li>Life jacket</li>
-              <li>Paddling lesson before you go out</li>
-              <li>Photos and videos of the trip</li>
-              <li>Dry bag for your things</li>
+              <li data-i18n="a1.1">Snorkel mask</li>
+              <li data-i18n="a1.2">Life jacket</li>
+              <li data-i18n="a1.3">Paddling lesson before you go out</li>
+              <li data-i18n="a1.4">Photos and videos of the trip</li>
+              <li data-i18n="a1.5">Dry bag for your things</li>
             </ul>
           </div>
         </div>
@@ -348,52 +354,52 @@
 
       <div class="acc">
         <button class="acc__head" type="button" aria-expanded="false" data-acc="a2">
-          <span>What to bring</span>
+          <span data-i18n="a2.h">What to bring</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
         <div class="acc__panel" id="a2">
           <div class="acc__inner">
-            <p>A small bottle of water, a windbreaker, swimwear and a towel.</p>
-            <p>For the sunrise paddle, bring sunscreen as well.</p>
+            <p data-i18n="a2.1">A small bottle of water, a windbreaker, swimwear and a towel.</p>
+            <p data-i18n="a2.2">For the sunrise paddle, bring sunscreen as well.</p>
           </div>
         </div>
       </div>
 
       <div class="acc">
         <button class="acc__head" type="button" aria-expanded="false" data-acc="a3">
-          <span>Where we meet</span>
+          <span data-i18n="a3.h">Where we meet</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
         <div class="acc__panel" id="a3">
           <div class="acc__inner">
-            <p>Mámbembe Hostel, Vila do Abraão, Ilha Grande.</p>
-            <p><a class="link-cta" href="https://maps.app.goo.gl/mchRhJf3CcLWjKNw8" target="_blank" rel="noopener">Open the meeting point in Google Maps</a></p>
+            <p data-i18n="a3.1">Mámbembe Hostel, Vila do Abraão, Ilha Grande.</p>
+            <p><a class="link-cta" href="https://maps.app.goo.gl/mchRhJf3CcLWjKNw8" target="_blank" rel="noopener" data-i18n="a3.2">Open the meeting point in Google Maps</a></p>
           </div>
         </div>
       </div>
 
       <div class="acc">
         <button class="acc__head" type="button" aria-expanded="false" data-acc="a4">
-          <span>How to pay</span>
+          <span data-i18n="a4.h">How to pay</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
         <div class="acc__panel" id="a4">
           <div class="acc__inner">
-            <p>Cash, Pix, or card with a small processing fee.</p>
-            <p>You pay on the day, at the meeting point.</p>
+            <p data-i18n="a4.1">Cash, Pix, or card with a small processing fee.</p>
+            <p data-i18n="a4.2">You pay on the day, at the meeting point.</p>
           </div>
         </div>
       </div>
 
       <div class="acc">
         <button class="acc__head" type="button" aria-expanded="false" data-acc="a5">
-          <span>Do I need experience</span>
+          <span data-i18n="a5.h">Do I need experience</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
         <div class="acc__panel" id="a5">
           <div class="acc__inner">
-            <p>No. None of the tours need previous experience.</p>
-            <p>Every canoe trip starts with a paddling lesson, and the guide is with the group the whole time.</p>
+            <p data-i18n="a5.1">No. None of the tours need previous experience.</p>
+            <p data-i18n="a5.2">Every canoe trip starts with a paddling lesson, and the guide is with the group the whole time.</p>
           </div>
         </div>
       </div>
@@ -408,16 +414,16 @@
      ========================================================================== -->
 <section class="gallery">
   <div class="wrap">
-    <h2 class="h2 gallery__title">On the island</h2>
+    <h2 class="h2 gallery__title" data-i18n="gal.h">On the island</h2>
 
     <!-- COMENTARIO REEMPLAZO: reemplazá las 6 fotos. Cuadradas o casi cuadradas funcionan mejor. -->
     <div class="gallery__grid">
-      <img src="04.jpeg" alt="Canoe group on the water" width="800" height="800" loading="lazy">
-      <img src="05.jpeg" alt="Forest trail in Ilha Grande" width="800" height="800" loading="lazy">
-      <img src="06.jpeg" alt="Snorkelling over coral" width="800" height="800" loading="lazy">
-      <img src="07.jpeg" alt="View from the summit" width="800" height="800" loading="lazy">
-      <img src="11.jpeg" alt="Sunset from the canoe" width="800" height="800" loading="lazy">
-      <img src="09.jpeg" alt="Beach in Ilha Grande" width="800" height="800" loading="lazy">
+      <img src="04.jpeg" alt="Canoe group on the water" width="800" height="800" loading="lazy" data-i18n-attr="alt:alt.g1">
+      <img src="05.jpeg" alt="Forest trail in Ilha Grande" width="800" height="800" loading="lazy" data-i18n-attr="alt:alt.g2">
+      <img src="06.jpeg" alt="Snorkelling over coral" width="800" height="800" loading="lazy" data-i18n-attr="alt:alt.g3">
+      <img src="07.jpeg" alt="View from the summit" width="800" height="800" loading="lazy" data-i18n-attr="alt:alt.g4">
+      <img src="11.jpeg" alt="Sunset from the canoe" width="800" height="800" loading="lazy" data-i18n-attr="alt:alt.g5">
+      <img src="09.jpeg" alt="Beach in Ilha Grande" width="800" height="800" loading="lazy" data-i18n-attr="alt:alt.g6">
     </div>
   </div>
 </section>
@@ -432,8 +438,8 @@
      ========================================================================== -->
 <section class="trust">
   <div class="wrap">
-    <h2 class="h2 trust__title">See what people say</h2>
-    <p class="trust__text">Reviews and day-to-day photos from the tours.</p>
+    <h2 class="h2 trust__title" data-i18n="trust.h">See what people say</h2>
+    <p class="trust__text" data-i18n="trust.p">Reviews and day-to-day photos from the tours.</p>
 
     <div class="trust__links">
       <a class="trust__card" href="https://www.instagram.com/guiailhagrande.aventura" target="_blank" rel="noopener">
@@ -473,11 +479,11 @@
      ========================================================================== -->
 <section class="cta" id="book">
   <div class="wrap cta__inner">
-    <h2 class="cta__title">Ready when you are</h2>
-    <p class="cta__text">
+    <h2 class="cta__title" data-i18n="cta.h">Ready when you are</h2>
+    <p class="cta__text" data-i18n="cta.t">
       Send a message and we will find the right day, tide and moon for your trip.
     </p>
-    <a class="btn btn--light btn--big" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener">Message us on WhatsApp</a>
+    <a data-wa-key="wa.book" class="btn btn--light btn--big" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener" data-i18n="cta.b">Message us on WhatsApp</a>
   </div>
 </section>
 
@@ -493,43 +499,44 @@
     <div class="footer__brand">
       <span class="brand__mark" aria-hidden="true"></span>
       <p class="footer__name">Guia Ilha Grande Aventura</p>
-      <p class="footer__blurb">
+      <p class="footer__blurb" data-i18n="foot.blurb">
         Canoe and mountain tours in Ilha Grande, Angra dos Reis, Brazil.
       </p>
     </div>
 
     <nav class="footer__col" aria-label="Footer">
-      <h3 class="footer__head">Tours</h3>
-      <a href="#bioluminescence">Bioluminescence</a>
-      <a href="#karamuru">Sunrise &amp; sunset</a>
+      <h3 class="footer__head" data-i18n="foot.tours">Tours</h3>
+      <a href="#bioluminescence" data-i18n="foot.l1">Bioluminescence</a>
+      <a href="#karamuru" data-i18n="foot.l2">Sunrise &amp; sunset</a>
       <a href="#trekking">Pico do Papagaio</a>
-      <a href="#info">Practical info</a>
+      <a href="#info" data-i18n="foot.l4">Practical info</a>
     </nav>
 
     <div class="footer__col">
-      <h3 class="footer__head">Get in touch</h3>
+      <h3 class="footer__head" data-i18n="foot.touch">Get in touch</h3>
       <!-- COMENTARIO REEMPLAZO: número de WhatsApp definitivo en el href y en el texto -->
       <a href="https://wa.me/5524992149708" target="_blank" rel="noopener">WhatsApp +55 24 99214-9708</a>
       <a href="https://www.instagram.com/guiailhagrande.aventura" target="_blank" rel="noopener">@guiailhagrande.aventura</a>
-      <p class="footer__plain">Vila do Abraão, Ilha Grande<br>Rio de Janeiro, Brazil</p>
+      <p class="footer__plain" data-i18n="foot.addr">Vila do Abraão, Ilha Grande<br>Rio de Janeiro, Brazil</p>
     </div>
 
   </div>
 
   <div class="wrap footer__base">
     <p>&copy; <span id="year">2026</span> Guia Ilha Grande Aventura</p>
-    <p>Site by Plexiweb Development</p>
+    <p data-i18n="foot.site">Site by Plexiweb Development</p>
   </div>
 </footer>
 
 
 <!-- Botón flotante de WhatsApp -->
-<a class="wa" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+<a data-wa-key="wa.book" class="wa" href="https://wa.me/5524992149708?text=Hi%20Franco%2C%20I%27d%20like%20to%20book%20a%20tour%20in%20Ilha%20Grande" target="_blank" rel="noopener" aria-label="Message us on WhatsApp" data-i18n-attr="aria-label:aria.wa">
   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
 
+<script src="i18n.js"></script>
 <script src="index.js" defer></script>
 </body>
 </html>

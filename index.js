@@ -8,6 +8,8 @@
    3. Marca el header cuando bajás en la página
    4. Escribe el año actual en el footer
 
+   Las traducciones (EN / PT) viven en i18n.js.
+
    No hay código dentro del HTML: todo el comportamiento vive acá.
    ========================================================================== */
 
@@ -26,8 +28,13 @@
     const setMenu = function (open) {
       nav.classList.toggle("is-open", open);
       burger.setAttribute("aria-expanded", String(open));
-      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      burger.setAttribute("aria-label", window.I18N.t(open ? "menu.close" : "menu.open"));
     };
+
+    // i18n.js ya reescribió el aria-label base en el idioma nuevo
+    document.addEventListener("i18n:change", function () {
+      setMenu(burger.getAttribute("aria-expanded") === "true");
+    });
 
     burger.addEventListener("click", function () {
       const isOpen = burger.getAttribute("aria-expanded") === "true";
@@ -95,13 +102,15 @@
       if (head.getAttribute("aria-expanded") === "true") openPanel(head);
     });
 
-    // Si la ventana cambia de ancho, el texto ocupa otra altura:
+    // Si la ventana cambia de ancho o de idioma, el texto ocupa otra altura:
     // recalculamos el panel que esté abierto
-    window.addEventListener("resize", function () {
+    const refit = function () {
       heads.forEach(function (head) {
         if (head.getAttribute("aria-expanded") === "true") openPanel(head);
       });
-    });
+    };
+    window.addEventListener("resize", refit);
+    document.addEventListener("i18n:change", refit);
   }
 
 
