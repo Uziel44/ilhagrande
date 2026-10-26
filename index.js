@@ -8,7 +8,7 @@
    3. Marca el header cuando bajás en la página
    4. Escribe el año actual en el footer
 
-   Las traducciones (EN / PT) viven en i18n.js.
+   Las traducciones (EN / PT / ES) viven en i18n.js.
 
    No hay código dentro del HTML: todo el comportamiento vive acá.
    ========================================================================== */

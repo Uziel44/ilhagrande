@@ -11,7 +11,7 @@ Landing page estática. Cuatro archivos, sin frameworks ni dependencias.
 | `index.html` | La estructura y todo el texto de la página |
 | `index.css` | Todos los estilos, incluidas las dos paletas |
 | `index.js` | Menú móvil, acordeón y el año del footer |
-| `i18n.js` | Traducciones EN / PT y selector de idioma |
+| `i18n.js` | Traducciones EN / PT / ES y selector de idioma |
 | `img/` | Las fotos. Leé `img/LEEME.txt` para los nombres exactos |
 | `robots.txt` | Le dice a Google que puede indexar el sitio |
 | `sitemap.xml` | Lista de páginas para Google |
@@ -130,16 +130,16 @@ la bioluminiscencia, por el amanecer o por el trekking, sin preguntarlo.
 
 ---
 
-## Idiomas (EN / PT)
+## Idiomas (EN / PT / ES)
 
 Una sola página: `index.html` tiene el texto en **inglés** (respaldo sin JS y
-para Google) y `i18n.js` tiene el **portugués**. Al abrir, la web usa el idioma
-guardado, si no el del navegador, si no inglés. Los botones EN / PT del header
+para Google) y `i18n.js` tiene el **portugués** y el **español**. Al abrir, la web usa el idioma
+guardado, si no el del navegador, si no inglés. Los botones EN / PT / ES del header
 cambian el idioma sin recargar.
 
-- Texto: `data-i18n="clave"` en el elemento. La clave se traduce en `DICT.pt`.
+- Texto: `data-i18n="clave"` en el elemento. La clave se traduce en `DICT.pt` y `DICT.es`.
 - Atributos (`alt`, `aria-label`, `content`): `data-i18n-attr="alt:clave"`.
 - Mensaje de WhatsApp: `data-wa-key="clave"` en el enlace `wa.me`.
-- Para cambiar un texto en portugués, editá su clave en `i18n.js`.
-- Para agregar un idioma: sumalo a `LANGS`, creá su bloque en `DICT` y agregá un
+- Para cambiar un texto en portugués o español, editá su clave en `i18n.js`.
+- Para agregar otro idioma: sumalo a `LANGS`, creá su bloque en `DICT` y agregá un
   botón `data-lang` en el header.

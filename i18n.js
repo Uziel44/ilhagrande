@@ -1,11 +1,11 @@
 /* ==========================================================================
    GUIA ILHA GRANDE AVENTURA
-   Traducciones (EN / PT). Se carga antes de index.js.
+   Traducciones (EN / PT / ES). Se carga antes de index.js.
 
    CÓMO FUNCIONA
    El inglés (idioma principal) vive en el propio HTML: sirve de respaldo sin JS
    y para los buscadores. Al cargar se guarda una copia de cada texto marcado y
-   es lo que se restaura al volver a "en". Aquí abajo está el portugués.
+   es lo que se restaura al volver a "en". Aquí abajo están el portugués y el español.
      data-i18n="clave"                    → reemplaza el contenido del elemento
      data-i18n-attr="atributo:clave;..."  → reemplaza atributos (alt, aria-label, content)
      data-wa-key="clave"                  → reescribe el mensaje (?text=) de un enlace wa.me
@@ -17,7 +17,7 @@
 (function () {
   "use strict";
 
-  const LANGS = ["en", "pt"];
+  const LANGS = ["en", "pt", "es"];
   const DEFAULT = "en";
   const STORAGE_KEY = "lang";
 
@@ -145,6 +145,125 @@
       "wa.sunset": "Olá Franco, gostaria de fazer a remada ao entardecer.",
       "wa.trek": "Olá Franco, gostaria de fazer a trilha do Pico do Papagaio.",
       "aria.lang": "Idioma"
+    },
+    es: {
+      "meta.title": "Guía Ilha Grande Aventura | Paseos en canoa hawaiana y trekking",
+      "meta.description": "Paseos en canoa hawaiana y trekking en grupos pequeños en Ilha Grande, Brasil. Remadas nocturnas con bioluminiscencia, paseos al amanecer y subidas guiadas al Pico do Papagaio.",
+      "meta.ogtitle": "Guía Ilha Grande Aventura",
+      "meta.ogdesc": "Remadas nocturnas con bioluminiscencia, paseos en canoa al amanecer y treks guiados en Ilha Grande, Brasil.",
+      "skip": "Saltar al contenido",
+      "nav.about": "Sobre nosotros",
+      "nav.book": "Reservar paseo",
+      "aria.menu": "Abrir menú",
+      "aria.hero": "Agua bioluminiscente alrededor de una canoa hawaiana de noche en Ilha Grande",
+      "hero.l1": "Noches que brillan.",
+      "hero.l2": "Amaneceres que",
+      "hero.l3": "valen la pena.",
+      "hero.text": "Paseos en canoa hawaiana y montaña en grupos pequeños en Ilha Grande, Brasil, con el guía Franco Raffaeli.",
+      "hero.cta1": "Reserva por WhatsApp",
+      "hero.cta2": "Ver los paseos",
+      "aria.scroll": "Ir al contenido",
+      "alt.franco": "Franco Raffaeli, guía local en Ilha Grande",
+      "about.h": "Tu guía en la isla",
+      "about.lead": "Franco rema y hace caminatas en Ilha Grande desde hace años. Cada paseo tiene un guía y como máximo seis personas, para que nadie se quede atrás y la isla siga tranquila.",
+      "about.p": "No hace falta experiencia en ninguno de los paseos. Recibes una clase de remo antes de salir, todo el equipo de seguridad y, después, las fotos y los videos del paseo.",
+      "about.t1": "No se necesita experiencia",
+      "about.t2": "Seis personas por grupo, un guía",
+      "about.t3": "Equipo de seguridad incluido",
+      "about.t4": "Fotos y videos de tu paseo",
+      "split.h": "Nuestros dos tipos de paseo",
+      "alt.split1": "Canoa hawaiana en el mar al amanecer",
+      "split.k1": "En el agua",
+      "split.t1": "Paseos en canoa hawaiana: bioluminiscencia después de oscurecer, remadas al amanecer y al atardecer.",
+      "split.c1": "Tres paseos",
+      "alt.split2": "Senderistas en un sendero del bosque de Ilha Grande",
+      "split.k2": "En la montaña",
+      "split.t2": "Subidas guiadas por la Mata Atlántica hasta la cima del Pico do Papagaio.",
+      "split.c2": "Una ruta",
+      "glow.k": "El paseo por el que la gente vuelve",
+      "glow.h": "Nada entre las estrellas",
+      "glow.lead": "Pequeños organismos marinos se encienden cuando el agua se mueve. Remamos después de oscurecer, entramos al mar con máscara y el agua brilla alrededor de tus manos con cada brazada.",
+      "glow.note": "La bioluminiscencia es un fenómeno natural, así que depende del mar y del cielo. Las noches más oscuras muestran más luz, por eso los horarios de salida cambian con la fase de la luna.",
+      "f.dur": "Duración",
+      "f.dur.v": "2 horas",
+      "f.dep": "Salidas",
+      "f.dep.v": "18:00, 20:00 y 22:00",
+      "f.grp": "Tamaño del grupo",
+      "f.grp.v": "Máximo 6 personas",
+      "f.price": "Precio",
+      "f.price.v": "R$150 por persona",
+      "glow.cta": "Ver noches disponibles",
+      "tours.h": "El resto de Karamuru",
+      "tours.t": "La misma canoa, el mismo grupo pequeño, otra luz. Los dos paseos salen de Vila do Abraão.",
+      "alt.sunrise": "Amanecer desde una canoa hawaiana en Ilha Grande",
+      "sr.h": "Remada al amanecer",
+      "sr.t": "Salimos antes del alba y remamos hasta un punto para ver salir el sol. En el camino hacemos snorkel sobre el coral y luego seguimos la costa de regreso, entre aves, playas y bosque.",
+      "sr.m1": "<span>Salida</span> 5:00, cambia según la estación",
+      "sr.m2": "<span>Grupo</span> máximo 6 personas",
+      "sr.m3": "<span>Precio</span> R$150 por persona",
+      "sr.cta": "Consulta por la remada al amanecer",
+      "alt.sunset": "Remada en canoa al atardecer en Ilha Grande",
+      "ss.h": "Remada al atardecer",
+      "ss.t": "Una tarde tranquila en el agua a lo largo de la costa de Ilha Grande, a la hora en que cambia la luz. Una buena primera remada si nunca has estado en una canoa.",
+      "ss.m1": "<span>Salida</span> al final de la tarde, cambia según la estación",
+      "ss.m3": "<span>Precio</span> consúltanos",
+      "ss.cta": "Consulta por la remada al atardecer",
+      "trek.lead": "Una subida guiada por la Mata Atlántica hasta una de las mejores vistas del estado de Río de Janeiro. Calentamos en el punto de encuentro y luego subimos por el bosque a un ritmo que funcione para el grupo.",
+      "trek.p": "En el camino hay fauna para observar, plantas que no verás en ningún otro lugar y miradores sobre toda la bahía. En la cima hacemos una parada como se debe antes de bajar.",
+      "trek.t1": "Guía local todo el camino",
+      "trek.t2": "Fotos y videos incluidos",
+      "trek.t3": "No se necesita experiencia de escalada",
+      "trek.cta": "Consulta por el trek",
+      "alt.trek": "Vista panorámica del Pico do Papagaio sobre Ilha Grande",
+      "info.h": "Antes de venir",
+      "info.p": "Todo lo que la gente suele preguntar antes de reservar.",
+      "a1.h": "Qué está incluido",
+      "a1.1": "Máscara de snorkel",
+      "a1.2": "Chaleco salvavidas",
+      "a1.3": "Clase de remo antes de salir",
+      "a1.4": "Fotos y videos del paseo",
+      "a1.5": "Bolsa estanca para tus cosas",
+      "a2.h": "Qué llevar",
+      "a2.1": "Una botellita de agua, un cortavientos, traje de baño y toalla.",
+      "a2.2": "Para la remada al amanecer, lleva también protector solar.",
+      "a3.h": "Dónde nos encontramos",
+      "a3.1": "Mámbembe Hostel, Vila do Abraão, Ilha Grande.",
+      "a3.2": "Abrir el punto de encuentro en Google Maps",
+      "a4.h": "Cómo pagar",
+      "a4.1": "Efectivo, Pix o tarjeta con una pequeña comisión.",
+      "a4.2": "Se paga el mismo día, en el punto de encuentro.",
+      "a5.h": "¿Necesito experiencia?",
+      "a5.1": "No. Ninguno de los paseos requiere experiencia previa.",
+      "a5.2": "Todo paseo en canoa empieza con una clase de remo, y el guía está con el grupo todo el tiempo.",
+      "gal.h": "En la isla",
+      "alt.g1": "Grupo en canoa en el agua",
+      "alt.g2": "Sendero del bosque en Ilha Grande",
+      "alt.g3": "Snorkel sobre el coral",
+      "alt.g4": "Vista desde la cima",
+      "alt.g5": "Atardecer desde la canoa",
+      "alt.g6": "Playa en Ilha Grande",
+      "trust.h": "Mira lo que dicen",
+      "trust.p": "Reseñas y fotos del día a día de los paseos.",
+      "cta.h": "Listos cuando tú lo estés",
+      "cta.t": "Envía un mensaje y encontraremos el día, la marea y la luna ideales para tu paseo.",
+      "cta.b": "Escríbenos por WhatsApp",
+      "foot.blurb": "Paseos en canoa y montaña en Ilha Grande, Angra dos Reis, Brasil.",
+      "foot.tours": "Paseos",
+      "foot.l1": "Bioluminiscencia",
+      "foot.l2": "Amanecer y atardecer",
+      "foot.l4": "Información práctica",
+      "foot.touch": "Contacto",
+      "foot.addr": "Vila do Abraão, Ilha Grande<br>Río de Janeiro, Brasil",
+      "foot.site": "Sitio por Plexiweb Development",
+      "aria.wa": "Escríbenos por WhatsApp",
+      "aria.lang": "Idioma",
+      "wa.book": "Hola Franco, me gustaría reservar un paseo en Ilha Grande.",
+      "wa.glow": "Hola Franco, me gustaría hacer el paseo de bioluminiscencia. ¿Qué noches hay disponibles?",
+      "wa.sunrise": "Hola Franco, me gustaría hacer la remada al amanecer.",
+      "wa.sunset": "Hola Franco, me gustaría hacer la remada al atardecer.",
+      "wa.trek": "Hola Franco, me gustaría hacer el trek del Pico do Papagaio.",
+      "menu.open": "Abrir menú",
+      "menu.close": "Cerrar menú"
     }
   };
 
