@@ -846,6 +846,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 .trust__name { font-family: var(--display); font-weight: 700; color: var(--forest); }
 .trust__handle { font-size: .92rem; color: var(--ink-soft); }
 
+.trust__links { align-items: center; }
+.trust__logo {
+  display: flex;
+  align-items: center;
+  padding: 14px 26px;
+  background: #fff;
+  border: 1px solid rgba(16,35,28,.12);
+  border-radius: var(--radius);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.trust__logo:hover { transform: translateY(-3px); border-color: var(--jungle); }
+.trust__logo img { height: 72px; width: auto; display: block; }
+
 /* Estilos de los testimonios, listos para cuando descomentes el bloque */
 .quotes {
   display: grid;
