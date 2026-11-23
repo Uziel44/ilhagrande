@@ -402,6 +402,10 @@
     $$("[data-lang]").forEach(function (btn) {
       btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
     });
+    // Selector desplegable: el botón muestra bandera + código del idioma activo
+    const activeBtn = document.querySelector("[data-lang][aria-pressed='true']");
+    const current = document.querySelector("[data-lang-current]");
+    if (activeBtn && current) current.innerHTML = activeBtn.innerHTML;
   };
 
   const setLang = function (next, opts) {
@@ -428,6 +432,21 @@
   $$("[data-lang]").forEach(function (btn) {
     btn.addEventListener("click", function () { setLang(btn.dataset.lang); });
   });
+
+  // Lista desplegable de idiomas: abrir/cerrar
+  (function () {
+    const box = document.querySelector(".lang");
+    const toggle = document.querySelector(".lang__toggle");
+    if (!box || !toggle) return;
+    const close = function () { box.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); };
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const open = box.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  })();
 
   window.I18N = { t: t, setLang: setLang, get lang() { return lang; } };
 

@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="index.css?v=21">
+<link rel="stylesheet" href="index.css?v=29">
 </head>
 
 <body>
@@ -77,9 +77,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
 
     <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:aria.lang">
-      <button class="lang__btn" type="button" lang="en" data-lang="en" aria-label="English" aria-pressed="true">EN</button>
-      <button class="lang__btn" type="button" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false">PT</button>
-      <button class="lang__btn" type="button" lang="es" data-lang="es" aria-label="Español" aria-pressed="false">ES</button>
+      <button class="lang__toggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language" data-i18n-attr="aria-label:aria.lang">
+        <span class="lang__current" data-lang-current><img class="lang__flag" src="img/flags/us.svg" alt="" width="20" height="20"><span>EN</span></span>
+      </button>
+      <div class="lang__list" role="listbox">
+        <button class="lang__btn" type="button" role="option" lang="en" data-lang="en" aria-label="English" aria-pressed="true"><img class="lang__flag" src="img/flags/us.svg" alt="" width="20" height="20"><span>EN</span></button>
+        <button class="lang__btn" type="button" role="option" lang="es" data-lang="es" aria-label="Español" aria-pressed="false"><img class="lang__flag" src="img/flags/es.svg" alt="" width="20" height="20"><span>ES</span></button>
+        <button class="lang__btn" type="button" role="option" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false"><img class="lang__flag" src="img/flags/br.svg" alt="" width="20" height="20"><span>PT</span></button>
+      </div>
     </div>
 
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu" data-i18n-attr="aria-label:aria.menu">
@@ -127,7 +132,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <a class="split__half split__half--water" href="#karamuru">
     <!-- COMENTARIO REEMPLAZO: foto de canoa -->
-    <img class="split__img" src="11.jpeg" alt="Hawaiian canoe on the sea at sunrise" width="1200" height="1400" loading="lazy" data-i18n-attr="alt:alt.split1">
+    <video class="split__img" autoplay muted loop playsinline preload="metadata" poster="11.jpeg" aria-hidden="true">
+      <source src="img/biolumin.mp4" type="video/mp4">
+    </video>
     <div class="split__body">
       <p class="split__kicker" data-i18n="split.k1">On the water</p>
       <h3 class="split__title" data-i18n="split.title1">Karamuru</h3>
@@ -138,7 +145,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <a class="split__half split__half--forest" href="#trekking">
     <!-- COMENTARIO REEMPLAZO: foto de montaña o sendero -->
-    <img class="split__img" src="09.jpeg" alt="Hikers on a forest trail in Ilha Grande" width="1200" height="1400" loading="lazy" data-i18n-attr="alt:alt.split2">
+    <video class="split__img" autoplay muted loop playsinline preload="metadata" poster="09.jpeg" aria-hidden="true">
+      <source src="img/trek.mp4" type="video/mp4">
+    </video>
     <div class="split__body">
       <p class="split__kicker" data-i18n="split.k2">On the mountain</p>
       <h3 class="split__title" data-i18n="split.title2">Trekking</h3>
@@ -578,9 +587,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="trust__logo" href="https://www.tripadvisor.com.br/Attraction_Review-g303497-d1752263-Reviews-Pico_do_Papagaio-Ilha_Grande_Angra_Dos_Reis_State_of_Rio_de_Janeiro.html" target="_blank" rel="noopener">
         <img src="img/trip.avif" alt="Tripadvisor" height="90" loading="lazy">
       </a>
-      <a class="trust__card" href="https://www.instagram.com/karamuru.ig" target="_blank" rel="noopener">
-        <span class="trust__name">Instagram</span>
-        <span class="trust__handle">@karamuru.ig</span>
+      <a class="trust__logo" href="https://www.instagram.com/karamuru.ig" target="_blank" rel="noopener">
+        <img src="img/insta.png" alt="Instagram @karamuru.ig" height="90" loading="lazy">
       </a>
     </div>
 
@@ -667,7 +675,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </svg>
 </a>
 
-<script src="i18n.js?v=23"></script>
+<script src="i18n.js?v=24"></script>
 <script src="index.js?v=3" defer></script>
 </body>
 </html>
