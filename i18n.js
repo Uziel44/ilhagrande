@@ -256,7 +256,7 @@
       "g.p1": "Efectivo",
       "g.p2": "PIX",
       "g.p3": "Tarjeta (con recargo)",
-      "tours.h": "El resto de Karamuru",
+      "tours.h": "Karamuru",
       "tours.t": "La misma canoa, el mismo grupo pequeño, otra luz.",
       "alt.sunrise": "Amanecer desde una canoa hawaiana en Ilha Grande",
       "sr.h": "Tour de canoa hawaiana al amanecer",

@@ -482,6 +482,19 @@ ul { margin: 0; padding: 0; list-style: none; }
   overflow: hidden;
 }
 
+/* Foto de fondo: solo se ve la parte de arriba (canoa y cielo). El texto que trae la
+   imagen (zona 55%-76%) queda oculto: se desvanece hacia el negro de la sección. */
+.glow::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: max(100vw, 640px);
+  background: linear-gradient(rgba(5,7,11,.4), rgba(5,7,11,.4)), url("img/20.jpeg") center top / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 36%, transparent 52%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 36%, transparent 52%);
+  pointer-events: none;
+}
+
 .glow__aura {
   position: absolute;
   top: -20%; left: 50%;
@@ -1014,3 +1027,36 @@ ul { margin: 0; padding: 0; list-style: none; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   CARRUSEL HORIZONTAL · entre bioluminiscencia y Karamuru
+   2 filas que se desplazan solas en sentidos contrarios; pausa con el mouse.
+   ========================================================================== */
+.hcar { background: var(--abyss); padding: 56px 0; overflow: hidden; }
+.hcar__grid { display: grid; gap: 16px; }
+.hcar__col {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.hcar__track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  padding-right: 16px;
+  animation: hcar-left 70s linear infinite;
+}
+.hcar__track--down { animation-name: hcar-right; }
+.hcar__col:hover .hcar__track { animation-play-state: paused; }
+.hcar__track img {
+  height: 190px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+@keyframes hcar-left  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+@keyframes hcar-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (min-width: 768px) { .hcar__track img { height: 280px; } }
+@media (prefers-reduced-motion: reduce) { .hcar__track { animation: none; } }
+.hcar--forest { background: var(--forest); padding-top: 0; }
