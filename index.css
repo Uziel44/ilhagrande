@@ -435,9 +435,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .split__half--water::after {
   background: linear-gradient(to top, rgba(5,7,11,.93) 8%, rgba(10,26,36,.55) 55%, rgba(10,26,36,.2) 100%);
 }
-.split__half--forest::after {
-  background: linear-gradient(to top, rgba(11,59,46,.94) 8%, rgba(11,59,46,.55) 55%, rgba(11,59,46,.2) 100%);
-}
 
 .split__body {
   position: relative;
