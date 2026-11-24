@@ -757,7 +757,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .trek__body .ticks { margin: 0 0 8px; }
 
 .trek__photo { margin: 0; position: sticky; top: 100px; }
-.trek__photo img {
+.trek__photo img,
+.trek__photo video {
   width: 100%;
   aspect-ratio: 5 / 6;
   object-fit: cover;
