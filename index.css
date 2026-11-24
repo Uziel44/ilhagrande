@@ -366,14 +366,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* COMENTARIO REEMPLAZO: cambiá la ruta de la foto de fondo del hero */
   background-image:
     linear-gradient(to top, rgba(5,7,11,.94) 8%, rgba(10,26,36,.55) 55%, rgba(10,26,36,.2) 100%),
-    url("07.jpeg");
+    url("img/banner.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: center 62%;
 }
 
 .hero__content { position: relative; z-index: 2; }
 
-/* Video de fondo del hero (solo celular). El degradado oscuro de la foto se repite encima. */
+/* Video de fondo del hero (solo celular). En escritorio se usa la foto img/banner.jpeg.
+   Cuando el video empieza a reproducirse se repite encima el degradado oscuro de la foto. */
 .hero__video { display: none; }
 @media (max-width: 768px) {
   .hero__video {
@@ -420,6 +421,23 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
   width: 1px; height: 46px;
   background: linear-gradient(to bottom, transparent, rgba(255,255,255,.75));
+}
+
+/* Escritorio (foto clara): letras oscuras sobre un velo claro a la izquierda y abajo.
+   En celular se mantiene el video con velo oscuro y letras blancas. */
+@media (min-width: 769px) {
+  .hero__media {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,.80) 0%, rgba(255,255,255,.55) 38%, rgba(255,255,255,0) 72%),
+      linear-gradient(to top, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 55%),
+      url("img/banner.jpeg");
+  }
+  .hero__title { color: var(--deep-sea); }
+  .hero__title .line:last-child { color: #075A78; }
+  .hero__text { color: var(--ink); }
+  .hero .btn--ghost { background: rgba(255,255,255,.55); color: var(--deep-sea); border-color: rgba(10,26,36,.55); }
+  .hero .btn--ghost:hover { background: rgba(255,255,255,.9); }
+  .hero__scroll-line { background: linear-gradient(to bottom, transparent, rgba(10,26,36,.75)); }
 }
 
 /* Entrada del hero: un solo momento orquestado al cargar la página */
@@ -492,8 +510,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: transform .7s cubic-bezier(.22,.7,.3,1);
 }
 .split__half:hover .split__img { transform: scale(1.05); }
-/* Video de bioluminiscencia (vertical 9:16): se muestra completo, sin recortar, sobre fondo negro */
-.split__half--water video.split__img { object-fit: contain; background: var(--abyss); }
+/* Video de canoa (vertical 9:16): se muestra completo y con zoom 1.5x para que ocupe gran parte de la tarjeta */
+.split__half--water video.split__img { object-fit: contain; background: var(--abyss); transform: scale(1.5); }
+.split__half--water:hover video.split__img { transform: scale(1.58); }
 
 .split__half::after {
   content: "";
