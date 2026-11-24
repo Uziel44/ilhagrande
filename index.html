@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="index.css?v=29">
+<link rel="stylesheet" href="index.css?v=31">
 </head>
 
 <body>
@@ -102,6 +102,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero" id="home">
   <!-- COMENTARIO REEMPLAZO: foto de fondo del hero. Editá la ruta en index.css, en la regla .hero__media -->
   <div class="hero__media" role="img" aria-label="Bioluminescent water around a Hawaiian canoe at night in Ilha Grande" data-i18n-attr="aria-label:aria.hero"></div>
+  <!-- Video de fondo solo en celular: index.js le asigna la fuente únicamente si la pantalla es angosta -->
+  <video class="hero__video" data-src="img/hero-mobile.mp4" poster="07.jpeg" muted loop playsinline preload="none" aria-hidden="true"></video>
 
   <div class="wrap hero__content">
     <h1 class="hero__title">
@@ -675,7 +677,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </svg>
 </a>
 
-<script src="i18n.js?v=24"></script>
-<script src="index.js?v=3" defer></script>
+<script src="i18n.js?v=26"></script>
+<script src="index.js?v=5" defer></script>
 </body>
 </html>

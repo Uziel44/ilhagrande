@@ -18,6 +18,18 @@
 
 
   /* ------------------------------------------------------------------------
+     0. VIDEO DE FONDO DEL HERO (solo celular)
+     Se carga únicamente en pantallas angostas para no descargarlo en escritorio.
+     ------------------------------------------------------------------------ */
+  const heroVideo = document.querySelector(".hero__video");
+  if (heroVideo && window.matchMedia("(max-width: 768px)").matches) {
+    heroVideo.src = heroVideo.dataset.src;
+    heroVideo.addEventListener("playing", function () { heroVideo.parentElement.classList.add("has-video"); }, { once: true });
+    const p = heroVideo.play();
+    if (p && p.catch) p.catch(function () { /* sin autoplay: queda la foto */ });
+  }
+
+  /* ------------------------------------------------------------------------
      1. MENÚ MÓVIL
      ------------------------------------------------------------------------ */
   const burger = document.getElementById("burger");
