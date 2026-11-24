@@ -885,10 +885,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    11. INFO / ACORDEÓN
    ========================================================================== */
-.info {
-  padding: 104px 0;
-  background: linear-gradient(rgba(5,7,11,.45), rgba(5,7,11,.6)), url("img/debajo-del-agua.jpeg") center / cover no-repeat var(--deep-sea);
-}
+.info { padding: 104px 0; background: var(--mist); }
 
 .info__grid {
   display: grid;
@@ -961,18 +958,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--frond);
 }
 
-/* Antes de venir: letras claras sobre la foto de fondo */
-.info .h2 { color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.55); }
-.info .info__intro p { color: rgba(255,255,255,.9); text-shadow: 0 1px 10px rgba(0,0,0,.6); }
-.info .accordion { border-top-color: rgba(255,255,255,.3); }
-.info .acc { border-bottom-color: rgba(255,255,255,.3); }
-.info .acc__head { color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
-.info .acc__head:hover { color: var(--glow); }
-.info .acc__icon::before, .info .acc__icon::after { background: var(--glow); }
-.info .acc__inner { color: rgba(255,255,255,.92); text-shadow: 0 1px 10px rgba(0,0,0,.6); }
-.info .acc__inner .link-cta { color: var(--glow); border-color: var(--glow); }
-.info .acc__inner .link-cta:hover { color: #fff; border-color: #fff; }
-
 
 /* ==========================================================================
    12. GALERÍA
@@ -1006,13 +991,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 96px 0;
   text-align: center;
   background-image:
-    linear-gradient(to bottom, rgba(242,247,241,.55) 0%, rgba(242,247,241,.45) 100%),
-    url("03.jpeg");
+    linear-gradient(rgba(5,7,11,.45), rgba(5,7,11,.6)),
+    url("img/debajo-del-agua.jpeg");
   background-size: cover;
   background-position: center;
 }
-.trust__title { margin-bottom: .3em; }
-.trust__text { color: var(--ink-soft); margin-bottom: 36px; }
+.trust__title { margin-bottom: .3em; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.55); }
+.trust__text { color: rgba(255,255,255,.9); margin-bottom: 36px; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
 
 .trust__links {
   display: flex;

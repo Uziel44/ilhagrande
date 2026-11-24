@@ -318,7 +318,7 @@
       "tk.book": "Para hacer tu reservación tendrás que completar el formulario de salud y hacer un pago adelantado del 50%.",
       "trek.cta": "Consulta por el trek",
       "alt.trek": "Vista panorámica del Pico do Papagaio sobre Ilha Grande",
-      "info.h": "Antes de venir",
+      "info.h": "Recomendaciones antes de venir a Ilha Grande",
       "info.p": "Todo lo que la gente suele preguntar antes de reservar.",
       "a1.h": "Qué está incluido",
       "a1.1": "Máscara de snorkel",
