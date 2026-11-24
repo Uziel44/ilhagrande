@@ -519,9 +519,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: absolute;
   inset: 0;
 }
-.split__half--water::after {
-  background: linear-gradient(to top, rgba(5,7,11,.93) 8%, rgba(10,26,36,.55) 55%, rgba(10,26,36,.2) 100%);
-}
 
 .split__body {
   position: relative;
@@ -728,6 +725,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
+  object-position: center 55%;
   background: #E8F6FB;
 }
 
@@ -766,6 +764,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-color: var(--glow);
 }
 .tour .link-cta:hover { color: var(--deep-sea); border-color: var(--deep-sea); }
+
 
 /* Un solo tour: tarjeta horizontal en pantallas anchas */
 @media (min-width: 961px) {
@@ -818,7 +817,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    11. INFO / ACORDEÓN
    ========================================================================== */
-.info { padding: 104px 0; background: var(--mist); }
+.info {
+  padding: 104px 0;
+  background: linear-gradient(rgba(5,7,11,.45), rgba(5,7,11,.6)), url("img/debajo-del-agua.jpeg") center / cover no-repeat var(--deep-sea);
+}
 
 .info__grid {
   display: grid;
@@ -890,6 +892,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: 50%;
   background: var(--frond);
 }
+
+/* Antes de venir: letras claras sobre la foto de fondo */
+.info .h2 { color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.55); }
+.info .info__intro p { color: rgba(255,255,255,.9); text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+.info .accordion { border-top-color: rgba(255,255,255,.3); }
+.info .acc { border-bottom-color: rgba(255,255,255,.3); }
+.info .acc__head { color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+.info .acc__head:hover { color: var(--glow); }
+.info .acc__icon::before, .info .acc__icon::after { background: var(--glow); }
+.info .acc__inner { color: rgba(255,255,255,.92); text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+.info .acc__inner .link-cta { color: var(--glow); border-color: var(--glow); }
+.info .acc__inner .link-cta:hover { color: #fff; border-color: #fff; }
 
 
 /* ==========================================================================
