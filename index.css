@@ -368,7 +368,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     linear-gradient(to top, rgba(5,7,11,.85) 8%, rgba(10,26,36,.45) 50%, rgba(10,26,36,.1) 100%),
     url("img/banner-4.jpeg");
   background-size: cover;
-  background-position: center 50%;
+  background-position: center top;
 }
 
 .hero__content { position: relative; z-index: 2; }
@@ -610,6 +610,40 @@ ul { margin: 0; padding: 0; list-style: none; }
   max-width: 42ch;
 }
 
+/* Enlace que abre el popup de bioluminiscencia */
+.glow__more {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 0 0 3px;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--glow);
+  color: var(--glow);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.glow__more:hover { color: #fff; border-color: #fff; }
+
+/* Popup (dialog nativo) */
+.glow-dialog {
+  width: calc(100% - 40px);
+  max-width: 560px;
+  max-height: calc(100svh - 40px);
+  overflow-y: auto;
+  padding: 32px 30px 28px;
+  background: var(--deep-sea);
+  color: #fff;
+  border: 1px solid rgba(79,210,245,.4);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+.glow-dialog::backdrop { background: rgba(5,7,11,.72); }
+.glow-dialog h3 { font-size: 1.5rem; margin-bottom: 16px; color: var(--glow); }
+.glow-dialog p { color: rgba(255,255,255,.88); font-size: .98rem; }
+.glow-dialog__close { margin-top: 8px; }
+
 .facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -669,8 +703,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    9. TOURS DE CANOA · ZONA CELESTE SOBRE BLANCO
    ========================================================================== */
-.tours { padding: 104px 0; background: var(--paper); }
-.tours .h2 { color: var(--deep-sea); }
+.tours {
+  padding: 104px 0;
+  background: linear-gradient(rgba(5,7,11,.25), rgba(5,7,11,.35)), url("img/amanecer.jpeg") center / cover no-repeat var(--deep-sea);
+}
+.tours .h2 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,.55); }
 
 .tours__grid {
   display: grid;
@@ -693,6 +730,55 @@ ul { margin: 0; padding: 0; list-style: none; }
   object-fit: cover;
   object-position: center 55%;
   background: #E8F6FB;
+}
+
+/* Tarjeta del amanecer: carrusel vertical de 2 columnas en sentidos contrarios
+   (como el de trekking pero vertical). Dejan ver el fondo de la sección. */
+.tour .tour__slides {
+  display: flex;
+  gap: 10px;
+  width: min(86%, 300px);
+  height: 320px;
+  aspect-ratio: auto;
+  margin: 24px auto 0;
+  overflow: visible;
+  background: transparent;
+}
+.tour__col {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+}
+.tour__track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  animation: tour-up 40s linear infinite;
+}
+.tour__track--down { animation-name: tour-down; }
+.tour__track img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+@keyframes tour-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+@keyframes tour-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .tour__track { animation: none; } }
+@media (min-width: 961px) {
+  .tour .tour__slides {
+    width: 290px;
+    height: 460px;          /* altura fija: las fotos desaparecen (difuminado) en el borde de arriba y de abajo */
+    align-self: center;
+    margin: 28px 0 28px 28px;
+    flex-shrink: 0;
+  }
 }
 
 .tour__body { padding: 32px; display: flex; flex-direction: column; flex: 1; }
@@ -730,6 +816,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-color: var(--glow);
 }
 .tour .link-cta:hover { color: var(--deep-sea); border-color: var(--deep-sea); }
+
+/* Amanecer: tarjeta bien transparente para apreciar la foto de fondo, con acentos amarillos
+   (igual que bioluminiscencia usa celeste). Para cambiar el amarillo, editar --sun. */
+.tours { --sun: #FFC933; }
+.tours .tour {
+  background: rgba(5,7,11,.32);
+  border-color: rgba(255,201,51,.45);
+}
+.tours .tour__text { color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.tours .tour__meta { border-top-color: rgba(255,201,51,.35); }
+.tours .tour__meta li { border-bottom-color: rgba(255,201,51,.35); color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
+.tours .tour__meta span { color: var(--sun); }
+.tours .tour__meta a, .tours .tour .link-cta { color: var(--sun); }
+.tours .tour .link-cta { border-color: var(--sun); }
+.tours .tour .link-cta:hover { color: #fff; border-color: #fff; }
 
 
 /* Un solo tour: tarjeta horizontal en pantallas anchas */

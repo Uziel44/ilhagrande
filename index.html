@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="index.css?v=52">
+<link rel="stylesheet" href="index.css?v=66">
 </head>
 
 <body>
@@ -132,7 +132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <a class="split__half split__half--water" href="#karamuru">
     <!-- COMENTARIO REEMPLAZO: foto de canoa -->
-    <video class="split__img" autoplay muted loop playsinline preload="metadata" poster="11.jpeg" aria-hidden="true">
+    <video class="split__img" autoplay muted loop playsinline preload="metadata" poster="img/canoa3.jpeg" aria-hidden="true">
       <source src="img/canoa.mp4" type="video/mp4">
     </video>
     <div class="split__body">
@@ -203,12 +203,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="glow__title" data-i18n="glow.h">Bioluminescence tour in a Hawaiian canoe</h2>
 
     <div class="glow__cols">
-      <p class="glow__lead" data-i18n="glow.lead">
-        Capacity: up to 6 people + 1 instructor experienced in navigation and safety.
-      </p>
-      <p class="glow__note" data-i18n="glow.note">
-        Departure times may vary with the phases of the moon and seasonal conditions.
-      </p>
+      <div>
+        <p class="glow__note" data-i18n="glow.note">
+          Departure times may vary with the phases of the moon and seasonal conditions.
+        </p>
+        <button type="button" class="glow__more" data-open-dialog="glowDialog" data-i18n="glow.more">I want to know more about bioluminescence...</button>
+      </div>
     </div>
 
     <dl class="facts">
@@ -269,6 +269,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<dialog class="glow-dialog" id="glowDialog" aria-labelledby="glowDialogTitle">
+  <h3 id="glowDialogTitle" data-i18n="glow.dlg.h">What is bioluminescence?</h3>
+  <p data-i18n="glow.dlg.p1">It is light produced by living things. In the sea, it is mostly made by plankton microorganisms (dinoflagellates) through a chemical reaction inside their bodies: a molecule called luciferin reacts with oxygen and an enzyme, luciferase, and releases energy as blue light.</p>
+  <p data-i18n="glow.dlg.p2">How does it work? These organisms glow when the water moves: a paddle stroke, a hand, a wave. The movement stimulates them and they flash briefly. It is a defence mechanism: the light startles small predators or gives away whatever is attacking them. That is why, as we paddle, every stroke leaves a trail of light.</p>
+  <p data-i18n="glow.dlg.p3">How much you see depends on nature: darker nights (little moon), calm seas and the amount of plankton in the water change with the time of year and sea conditions. That is why we adjust departure times to the moon and the season.</p>
+  <button type="button" class="btn btn--glow glow-dialog__close" data-close-dialog data-i18n="glow.dlg.close">Close</button>
+</dialog>
+
+
 
 <!-- ==========================================================================
      SECCIÓN 06 · KARAMURU · AMANECER Y ATARDECER
@@ -282,8 +291,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="tours__grid">
 
       <article class="tour">
-        <!-- COMENTARIO REEMPLAZO: foto del amanecer -->
-        <img class="tour__img" src="img/canoa3.jpeg" alt="Sunrise from a Hawaiian canoe in Ilha Grande" width="900" height="600" loading="lazy" data-i18n-attr="alt:alt.sunrise">
+        <!-- Carrusel vertical de 2 columnas en sentidos contrarios (como el de trekking pero vertical); las fotos se repiten para que el bucle no tenga salto. CSS puro, ver .tour__slides en index.css -->
+        <div class="tour__img tour__slides" role="img" aria-label="Sunrise from a Hawaiian canoe in Ilha Grande" data-i18n-attr="aria-label:alt.sunrise">
+            <div class="tour__col"><div class="tour__track">
+              <img src="11.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="01.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="img/canoas.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="11.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="01.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="img/canoas.jpeg" alt="" width="480" height="600" loading="lazy">
+            </div></div>
+            <div class="tour__col"><div class="tour__track tour__track--down">
+              <img src="13.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="img/mobile.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="02.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="13.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="img/mobile.jpeg" alt="" width="480" height="600" loading="lazy">
+              <img src="02.jpeg" alt="" width="480" height="600" loading="lazy">
+            </div></div>
+        </div>
         <div class="tour__body">
           <p class="tour__text" data-i18n="sr.t">
             No experience is needed to take part. We leave before dawn and paddle to a spot to watch the sun come up.
@@ -627,7 +653,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </svg>
 </a>
 
-<script src="i18n.js?v=37"></script>
-<script src="index.js?v=8" defer></script>
+<script src="i18n.js?v=38"></script>
+<script src="index.js?v=9" defer></script>
 </body>
 </html>

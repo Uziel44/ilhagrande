@@ -18,6 +18,20 @@
 
 
   /* ------------------------------------------------------------------------
+     0. POPUPS (<dialog>): abrir con [data-open-dialog], cerrar con [data-close-dialog],
+     clic en el fondo o Esc.
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll("[data-open-dialog]").forEach(function (btn) {
+    const dlg = document.getElementById(btn.dataset.openDialog);
+    if (!dlg || typeof dlg.showModal !== "function") return;
+    btn.addEventListener("click", function () { dlg.showModal(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.querySelectorAll("[data-close-dialog]").forEach(function (x) {
+      x.addEventListener("click", function () { dlg.close(); });
+    });
+  });
+
+  /* ------------------------------------------------------------------------
      1. MENÚ MÓVIL
      ------------------------------------------------------------------------ */
   const burger = document.getElementById("burger");
